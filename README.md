@@ -25,7 +25,7 @@
 
 ## Конфигурация
 
-Все настройки задаются через файл [`config.go`](./config/config.go):
+Все настройки задаются через файл [`config.go`](./vedro/config/config.go):
 
 ```go
 const (
