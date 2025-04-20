@@ -1,0 +1,29 @@
+name: Build and Release vedrod
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-linux:
+    name: Build for Linux
+    runs-on: rocky-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.6'
+
+      - name: Build with Makefile
+        run: make build
+
+      - name: Upload release artifact
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/vedrod
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
