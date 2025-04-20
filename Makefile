@@ -14,3 +14,13 @@ run:
 .PHONY: clean
 clean:
 	rm -rf dist/vedrod
+
+.PHONY: install
+install: build
+	sudo cp dist/vedrod /usr/bin/vedrod
+	sudo mkdir /var/vedra
+
+.PHONY: uninstall
+un/install:
+	sudo rm /usr/bin/vedrod
+	sudo rmdir /var/vedra
