@@ -18,7 +18,7 @@ clean:
 .PHONY: install
 install: build
 	sudo cp dist/vedrod /usr/bin/vedrod
-	sudo mkdir /var/vedra
+	sudo mkdir -p /var/vedra
 
 .PHONY: uninstall
 un/install:
