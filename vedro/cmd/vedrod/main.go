@@ -78,7 +78,6 @@ func printConfig() {
 	fmt.Println("Current Configuration:")
 	fmt.Printf("Root Path:      %s\n", config.RootPath)
 	fmt.Printf("Server Addr:    %s\n", config.ServerAddr)
-	fmt.Printf("Scan Interval:  %d seconds\n", config.ScanInterval)
 	fmt.Printf("Enable Recover: %t\n", config.EnableRecover)
 	fmt.Printf("Enable Logging: %t\n", config.EnableLogging)
 }

@@ -28,9 +28,10 @@
 
 ```go
 const (
-    ServerAddr     = ":8080"             // адрес и порт сервера
-    RootPath       = "/var/vedra"        // корневая директория с "бакетами"
-    ScanInterval   = 30 * time.Second    // частота пересканирования файлов
+    ServerAddr     = ":8080"      // адрес и порт сервера
+    RootPath       = "/var/vedra" // корневая директория с "бакетами"
+    EnableRecover = true          // включить автоматическое восстановление
+    EnableLogging = true          // включить логирование запросов в stdout
 )
 ```
 
