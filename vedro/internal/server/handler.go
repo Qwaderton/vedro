@@ -72,7 +72,7 @@ func rootHandler(root string) http.HandlerFunc {
 
 func listBucketHandler(root string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		bucket := strings.TrimPrefix(r.URL.Path, "/")
+		bucket := strings.Trim(r.URL.Path, "/")
 		bucketPath := filepath.Join(root, bucket)
 
 		if _, err := os.Stat(bucketPath); os.IsNotExist(err) {
