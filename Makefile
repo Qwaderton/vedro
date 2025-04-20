@@ -21,6 +21,6 @@ install: build
 	sudo mkdir -p /var/vedra
 
 .PHONY: uninstall
-un/install:
+uninstall:
 	sudo rm /usr/bin/vedrod
 	sudo rmdir /var/vedra
