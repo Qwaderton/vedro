@@ -12,11 +12,10 @@ import (
 	"time"
 	"vedro/config"
 	"vedro/internal/server"
-	"vedro/internal/storage"
 )
 
 var (
-	version    = "dev"
+	version     = "dev"
 	showVersion bool
 	showConfig  bool
 )
@@ -49,21 +48,7 @@ func main() {
 		os.Exit(0)
 	}
 
-	cache := storage.NewCache()
-	cache.Scan(config.RootPath)
-
-	ticker := time.NewTicker(config.ScanInterval * time.Second)
-	defer ticker.Stop()
-
-	go func() {
-		for range ticker.C {
-			log.Println("Starting periodic scan")
-			cache.Scan(config.RootPath)
-			log.Println("Periodic scan completed")
-		}
-	}()
-
-	handler := server.NewHandler(cache)
+	handler := server.NewHandler(config.RootPath)
 	server := &http.Server{
 		Addr:    config.ServerAddr,
 		Handler: handler,
@@ -88,7 +73,6 @@ func main() {
 	}
 	log.Println("Server stopped")
 }
-
 
 func printConfig() {
 	fmt.Println("Current Configuration:")
